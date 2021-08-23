@@ -33,10 +33,15 @@ docker-compose up --build
 
 ## en otra shell, para correr el script que genera 20 instancias fake de Empresa
 docker exec -it app-django_django_app_1 bash
+
 cd mysite
+
 python3 manage.py shell
+
 exec(open('generate_faker.py').read())
+
 exit()
+
 exit
 
 ## url api de las empresas: http://0.0.0.0:8000/api_rest/company/
