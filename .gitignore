@@ -1,0 +1,5 @@
+ej1\ y\ ej2/app-django/myvenv/
+ej1\ y\ ej2/app-django/static/
+ej1\ y\ ej2/app-django/mysite/db.sqlite3
+*__pycache__/
+*.idea
