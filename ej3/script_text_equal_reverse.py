@@ -1,39 +1,28 @@
 import sys
 
+def find_palindromes_in_substring(text, j, k):
+    palindromes = []
+    while j >= 0 and k < len(text):
+        if text[j] != text[k]:
+            break
+        palindromes.append(text[j : k + 1])
+        j -= 1
+        k += 1
+    return palindromes
 
-def search_words_equal_reverse_words(text):
-    reverse_text = text[::-1]
-    i, j, k = 0, 0, 0
-    result = set()
-    finded_word = ''
-
-    while i < len(text):
-        while j < len(reverse_text) and k < len(text):
-            if text[k] == reverse_text[j]:
-                finded_word += text[k]
-                k += 1
-                j += 1
-            else:
-                if len(finded_word) > 1:
-                    result.add(finded_word)
-                else:
-                    k = i
-                finded_word = ''
-                j += 1
-
-        if len(finded_word) > 1:
-            result.add(finded_word)
-        finded_word = ''
-        i += 1
-        k = i
-        j = 0
-    return result
+def find_all_palindrome_substrings(text):
+    palindromes = []
+    for i in range(0, len(text)):
+        palindromes += find_palindromes_in_substring(text, i - 1, i + 1)
+        palindromes += find_palindromes_in_substring(text, i, i + 1)
+    return palindromes
 
 def main():
     text = sys.argv[1]
-    finded_words = search_words_equal_reverse_words(text)
+    palindromes = find_all_palindrome_substrings(text)
+
     print('\n')
-    print(f'Palabras encontradas: {sorted(list(finded_words))}')
+    print(f'Palabras encontradas: {palindromes}')
 
 if __name__ == "__main__":
     main()

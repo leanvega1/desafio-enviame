@@ -31,7 +31,7 @@ payload = json.dumps({
     }
   },
   "carrier": {
-    "carrier_code": "",
+    "carrier_code": "BLX",
     "tracking_number": ""
   }
 })
